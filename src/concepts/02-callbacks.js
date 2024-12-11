@@ -16,6 +16,7 @@ export const callbacksComponent = (element) => {
         }
     
         findHero(id2, (error, valorHero2) => {
+            
             if (error){
                 element.innerHTML= error ;
                 return;
