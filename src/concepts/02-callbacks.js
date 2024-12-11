@@ -6,20 +6,27 @@ import { heroes } from '../data/heroes';
  */
 export const callbacksComponent = (element) => {
 
-    const id = '5d86371fd55e2e2a30fe1ccb524';
-    findHero(id, (error, valorHero) => {
+    const id1 = '5d86371fd55e2e2a30fe1ccb1';
+    const id2 = '5d86371fd55e2e2a30fe1cc343';
+    findHero(id1, (error, valorHero1) => {
 
         if (error){
             element.innerHTML= error ;
             return;
         }
+    
+        findHero(id2, (error, valorHero2) => {
+            if (error){
+                element.innerHTML= error ;
+                return;
+            }
 
-        element.innerHTML = valorHero.name; // condicional '?' que verifica si el id del heroe existe
         
+        // element.innerHTML = valorHero.name; // condicional '?' que verifica si el id del heroe existe
+            element.innerHTML = `${valorHero1.name} / ${valorHero2.name}`;
+        })
 
     });
-
-    // console.log('callbacksComponent'); // 
   
 }
 
