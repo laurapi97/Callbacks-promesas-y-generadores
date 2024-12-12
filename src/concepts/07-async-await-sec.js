@@ -9,9 +9,15 @@ export const asyncAwait2Component = async (element) => {
     console.time('start');
 
 
-    const value1 = await slowPromise();
-    const value2 = await mediumPromise();
-    const value3 = await fastPromise ();
+    // const value1 = await slowPromise;
+    // const value2 = await mediumPromise();
+    // const value3 = await fastPromise ();
+
+   const [value1, value2, value3] = await Promise.all ([
+        slowPromise(),
+        mediumPromise(),
+        fastPromise(),
+    ]);
 
 
     element.innerHTML = ` 

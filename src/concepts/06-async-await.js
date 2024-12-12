@@ -13,10 +13,19 @@ export const asyncAwaitComponent = async (element) => {
  const id2 ='5d86371f233c9f2425f16916';
 
 
- const hero1 = await findHero (id1);
- const hero2 = await findHero (id2);
+try{
 
- element.innerHTML = `${hero1.name}/ ${hero2.name}`;
+   const hero1 = await findHero (id1);
+   const hero2 = await findHero (id2);
+  
+   element.innerHTML = `${hero1.name}/ ${hero2.name}`;
+} catch (error){
+
+   element.innerHTML='Error, hero not found';
+}
+
+
+
 }
 
 
